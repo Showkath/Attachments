@@ -1,0 +1,26 @@
+﻿,OpenAI,Google
+AI NLP products,"ChatGPT,
+OpenAI GPT-3 API,
+GPT-2 API ,DALL·E API,
+Whisper API
+,Codex API,
+,Jukebox API,etc","BERT (Bidirectional Encoder Representations from Transformers),
+LaMDA,
+Google Cloud Text-to-Speech WaveNet voices,
+,Google Contact Center AI,Google AutoML Natural Language
+,etc"
+API Reference,"https://platform.openai.com/docs/api-reference/introduction 
+https://platform.openai.com/docs/guides/chat",https://cloud.google.com/ai-platform/training/docs/algorithms/bert-start
+Documentation,"OPEN AI ->
+https://openai.com/blog/openai-api
+https://openai.com/product#made-for-developers
+https://chatgpt.com/#/
+
+Microsoft Azure OpenAI Service Documentation
+https://learn.microsoft.com/en-us/azure/cognitive-services/openai/",https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html
+Playground,https://platform.openai.com/playground,
+Tool,"ChatGPT
+https://chat.openai.com",
+,,
+,,
+,,
