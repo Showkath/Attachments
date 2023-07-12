@@ -27,15 +27,22 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.sap.cloud.security.spring.token.authentication.AuthenticationToken;//New
 import com.sap.cloud.security.token.TokenClaims;//New
 //import com.sap.cloud.security.xsuaa.XsuaaServiceConfiguration;//latest
+import com.sap.cloud.security.spring.config.IdentityServicesPropertySourceFactory;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@EnableWebSecurity(debug = true) // TODO "debug" may include sensitive information. Do not use in a production system!
+@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
+@PropertySource(factory = IdentityServicesPropertySourceFactory.class, ignoreResourceNotFound = true, value = { "" })
+
+
 // @EnableWebSecurity
-@EnableWebSecurity(debug = false)
 //@AllArgsConstructor
 // TODO "debug" may include sensitive information. Do not use in a production
 // system!
 //@PropertySource(factory = XsuaaServicePropertySourceFactory.class, value = { "" })
-@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
+
+
 //NOSONAR
 public class SecurityConfig {
 
@@ -75,17 +82,19 @@ public class SecurityConfig {
 			.csrf(csrf ->
 			csrf.disable())
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))			 
-				// session is created by approuter
+				
 				.authorizeHttpRequests(authorizeReq -> authorizeReq
 				
-				.requestMatchers("/*/ui/*")//  -TODO */vbeui/*
+			
+				.requestMatchers("/*/vbeui/*")
 				.hasAuthority("display")
 				
 				.requestMatchers("/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html",
 						"/webjars/**", "/error",
 						/* Probably not needed */"/swagger.json").permitAll()
-						//.hasAuthority("administrator")//TODO 
+						//.hasAuthority("administrator")
 				   .anyRequest().authenticated())
+				// TODO TBV I311690 Security good practice Always authenticate all endpoints by default.
 				
 				//Showkath Note : Use xsuaaServiceConfiguration  getJwtAuthoritiesConverter or [ authConverter + MyCustomHybridTokenAuthenticationConverter ]
 				
