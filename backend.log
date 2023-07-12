@@ -1,0 +1,173 @@
+Retrieving logs for app backend 
+
+   2023-07-12T14:48:42.02+0530 [API/137] OUT Creating build for app with guid b26d40f2-c23f-40a9-a662-3d79929860e8
+   2023-07-12T14:48:42.59+0530 [STG/0] OUT Cell ac23eeb2-9362-4216-b862-b0123510ab96 creating container for instance f262cbe9-bef3-418e-b51f-a8c6c1c123cf
+   2023-07-12T14:48:42.99+0530 [STG/0] OUT Security group rules were updated
+   2023-07-12T14:48:43.00+0530 [STG/0] OUT Cell ac23eeb2-9362-4216-b862-b0123510ab96 successfully created container for instance f262cbe9-bef3-418e-b51f-a8c6c1c123cf
+   2023-07-12T14:48:43.45+0530 [STG/0] OUT Downloading build artifacts cache...
+   2023-07-12T14:48:43.45+0530 [STG/0] OUT Downloading app package...
+   2023-07-12T14:48:43.49+0530 [STG/0] OUT Downloaded build artifacts cache (128B)
+   2023-07-12T14:48:45.61+0530 [STG/0] OUT Downloaded app package (73.7M)
+   2023-07-12T14:48:48.02+0530 [STG/0] OUT [1m[31m----->[0m[22m [1m[34mJava Buildpack[0m[22m [34m9f8aba6[0m | https://github.com/cloudfoundry/java-buildpack.git#9f8aba6
+   2023-07-12T14:48:48.15+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mJvmkill Agent[0m[22m [34m1.17.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/jvmkill/jammy/x86_64/jvmkill-1.17.0-RELEASE.so [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:48.80+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mSap Machine JRE[0m[22m [34m17.0.7_0.0.b0[0m from https://github.com/SAP/SapMachine/releases/download/sapmachine-17.0.7/sapmachine-jre-17.0.7_linux-x64_bin.tar.gz [3m[32m(0.6s)[0m[23m
+   2023-07-12T14:48:49.88+0530 [STG/0] OUT Expanding Sap Machine JRE to .java-buildpack/sap_machine_jre [3m[32m(1.0s)[0m[23m
+   2023-07-12T14:48:49.88+0530 [STG/0] OUT JVM DNS caching disabled in lieu of BOSH DNS caching
+   2023-07-12T14:48:49.93+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mOpen JDK Like Memory Calculator[0m[22m [34m3.13.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/memory-calculator/jammy/x86_64/memory-calculator-3.13.0-RELEASE.tar.gz [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:50.94+0530 [STG/0] OUT Loaded Classes: 31849, Threads: 250
+   2023-07-12T14:48:50.99+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mClient Certificate Mapper[0m[22m [34m1.11.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/client-certificate-mapper/client-certificate-mapper-1.11.0-RELEASE.jar [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:51.03+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mContainer Customizer[0m[22m [34m2.6.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/container-customizer/container-customizer-2.6.0-RELEASE.jar [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:51.09+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mContainer Security Provider[0m[22m [34m1.20.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/container-security-provider/container-security-provider-1.20.0-RELEASE.jar [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:51.09+0530 [STG/0] ERR [SpringAutoReconfiguration]      WARN  ATTENTION: The Spring Cloud Connectors library is present in your application. This library has been in maintenance mode since July 2019 and will stop receiving all updates after Mar 2024.
+   2023-07-12T14:48:51.09+0530 [STG/0] ERR [SpringAutoReconfiguration]      WARN  Please migrate to java-cfenv immediately. See https://via.vmw.com/EiBW for migration instructions.
+   2023-07-12T14:48:51.16+0530 [STG/0] OUT [1m[31m----->[0m[22m Downloading [1m[34mSpring Auto Reconfiguration[0m[22m [34m2.12.0_RELEASE[0m from https://java-buildpack.cloudfoundry.org/auto-reconfiguration/auto-reconfiguration-2.12.0-RELEASE.jar [3m[32m(0.0s)[0m[23m
+   2023-07-12T14:48:51.16+0530 [STG/0] ERR [SpringAutoReconfiguration]      WARN  ATTENTION: The Spring Auto Reconfiguration and shaded Spring Cloud Connectors libraries are being installed. These projects have been deprecated, are no longer receiving updates and should not be used going forward.
+   2023-07-12T14:48:51.16+0530 [STG/0] ERR [SpringAutoReconfiguration]      WARN  If you are not using these libraries, set `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION='{enabled: false}'` to disable their installation and clear this warning message. The buildpack will switch its default to disable by default after March 2023. Spring Auto Reconfiguration and its shaded Spring Cloud Connectors will be removed from the buildpack after March 2024.
+   2023-07-12T14:48:51.16+0530 [STG/0] ERR [SpringAutoReconfiguration]      WARN  If you are using these libraries, please migrate to java-cfenv immediately. See https://via.vmw.com/EiBW for migration instructions. Once you upgrade this message will go away.
+   2023-07-12T14:48:57.39+0530 [RTR/12] OUT backenddev-sales-transaction.cfapps.eu10.hana.ondemand.com - [2023-07-12T09:18:57.367979635Z] "POST /backend/reports/v1/transactions HTTP/1.1" 500 2 128 "-" "Java/17.0.7" "10.0.72.10:11860" "10.36.198.12:61061" x_forwarded_for:"52.158.118.183, 10.0.72.10" x_forwarded_proto:"https" vcap_request_id:"e10efae1-204c-4281-4653-f8ba57750861" response_time:0.026736 gorouter_time:0.000039 app_id:"b26d40f2-c23f-40a9-a662-3d79929860e8" app_index:"0" instance_id:"a74202ec-2ef0-47df-76c0-509f" x_cf_routererror:"-" x_correlationid:"-" tenantid:"-" sap_passport:"-" x_scp_request_id:"034f7904-92fe-49c1-a54c-245f82551fa3-64AE7001-B87F0B8" x_cf_app_instance:"-" x_forwarded_host:"-" x_custom_host:"-" x_ssl_client:"-" x_ssl_client_session_id:"-" x_ssl_client_verify:"-" x_ssl_client_subject_dn:"-" x_ssl_client_subject_cn:"-" x_ssl_client_issuer_dn:"-" x_ssl_client_notbefore:"-" x_ssl_client_notafter:"-" x_cf_forwarded_url:"-" traceparent:"-" x_b3_traceid:"5b24adcfaea3bc2352ef41864231022d" x_b3_spanid:"52ef41864231022d" x_b3_parentspanid:"-" b3:"5b24adcfaea3bc2352ef41864231022d-52ef41864231022d"
+   2023-07-12T14:49:06.74+0530 [STG/0] OUT Exit status 0
+   2023-07-12T14:49:06.74+0530 [STG/0] OUT Uploading droplet, build artifacts cache...
+   2023-07-12T14:49:06.74+0530 [STG/0] OUT Uploading build artifacts cache...
+   2023-07-12T14:49:06.74+0530 [STG/0] OUT Uploading droplet...
+   2023-07-12T14:49:06.75+0530 [STG/0] OUT Uploaded build artifacts cache (128B)
+   2023-07-12T14:49:08.70+0530 [API/88] OUT Creating droplet for app with guid b26d40f2-c23f-40a9-a662-3d79929860e8
+   2023-07-12T14:49:17.07+0530 [STG/0] OUT Uploaded droplet (171.9M)
+   2023-07-12T14:49:17.10+0530 [STG/0] OUT Uploading complete
+   2023-07-12T14:49:17.60+0530 [STG/0] OUT Cell ac23eeb2-9362-4216-b862-b0123510ab96 stopping instance f262cbe9-bef3-418e-b51f-a8c6c1c123cf
+   2023-07-12T14:49:17.60+0530 [STG/0] OUT Cell ac23eeb2-9362-4216-b862-b0123510ab96 destroying container for instance f262cbe9-bef3-418e-b51f-a8c6c1c123cf
+   2023-07-12T14:49:18.78+0530 [STG/0] OUT Cell ac23eeb2-9362-4216-b862-b0123510ab96 successfully destroyed container for instance f262cbe9-bef3-418e-b51f-a8c6c1c123cf
+   2023-07-12T14:49:19.38+0530 [API/32] OUT Updated app with guid b26d40f2-c23f-40a9-a662-3d79929860e8 ({:droplet_guid=>"2f8d1d14-e9bc-4b75-b970-19dd9c9d75ee"})
+   2023-07-12T14:49:19.72+0530 [API/129] OUT Creating revision for app with guid b26d40f2-c23f-40a9-a662-3d79929860e8
+   2023-07-12T14:49:20.06+0530 [CELL/0] OUT Cell b2689214-f97b-4fc8-9602-831a5f5b1257 stopping instance a74202ec-2ef0-47df-76c0-509f
+   2023-07-12T14:49:20.33+0530 [API/129] OUT Restarted app with guid b26d40f2-c23f-40a9-a662-3d79929860e8
+   2023-07-12T14:49:20.60+0530 [CELL/0] OUT Cell b39ffad6-d342-416a-82d2-3503293d7f7b creating container for instance b1b9fe4c-6e78-4f3f-7471-6bc6
+   2023-07-12T14:49:21.02+0530 [CELL/0] OUT Security group rules were updated
+   2023-07-12T14:49:21.03+0530 [CELL/0] OUT Cell b39ffad6-d342-416a-82d2-3503293d7f7b successfully created container for instance b1b9fe4c-6e78-4f3f-7471-6bc6
+   2023-07-12T14:49:21.54+0530 [CELL/0] OUT Downloading droplet...
+   2023-07-12T14:49:26.50+0530 [APP/PROC/WEB/0] OUT Exit status 143
+   2023-07-12T14:49:26.51+0530 [CELL/0] OUT Cell b2689214-f97b-4fc8-9602-831a5f5b1257 destroying container for instance a74202ec-2ef0-47df-76c0-509f
+   2023-07-12T14:49:26.67+0530 [PROXY/0] OUT Exit status 137
+   2023-07-12T14:49:26.87+0530 [CELL/0] OUT Downloaded droplet (171.9M)
+   2023-07-12T14:49:26.87+0530 [CELL/0] OUT Starting health monitoring of container
+   2023-07-12T14:49:26.97+0530 [APP/PROC/WEB/0] OUT JVM Memory Configuration: -Xmx346484K -Xss1M -XX:ReservedCodeCacheSize=240M -XX:MaxMetaspaceSize=200331K
+   2023-07-12T14:49:27.63+0530 [APP/PROC/WEB/0] ERR log4j:WARN No appenders could be found for logger (org.springframework.boot.web.servlet.context.ApplicationServletEnvironment).
+   2023-07-12T14:49:27.63+0530 [APP/PROC/WEB/0] ERR log4j:WARN Please initialize the log4j system properly.
+   2023-07-12T14:49:27.63+0530 [APP/PROC/WEB/0] ERR log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+   2023-07-12T14:49:27.86+0530 [CELL/0] OUT Cell b2689214-f97b-4fc8-9602-831a5f5b1257 successfully destroyed container for instance a74202ec-2ef0-47df-76c0-509f
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT .   ____          _            __ _ _
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT '  |____| .__|_| |_|_| |_\__, | / / / /
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT =========|_|==============|___/=/_/_/_/
+   2023-07-12T14:49:27.98+0530 [APP/PROC/WEB/0] OUT [32m :: Spring Boot :: [39m              [2m (v3.1.1)[0;39m
+   2023-07-12T14:49:28.11+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:28 AM org.cloudfoundry.reconfiguration.CloudPropertySourceApplicationContextInitializer lambda$initialize$1
+   2023-07-12T14:49:28.11+0530 [APP/PROC/WEB/0] ERR INFO: 'cloud' property source added
+   2023-07-12T14:49:28.11+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:28 AM org.cloudfoundry.reconfiguration.CloudServiceReconfigurationApplicationContextInitializer lambda$initialize$1
+   2023-07-12T14:49:28.11+0530 [APP/PROC/WEB/0] ERR INFO: Reconfiguration enabled
+   2023-07-12T14:49:30.00+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.core.StandardService startInternal
+   2023-07-12T14:49:30.00+0530 [APP/PROC/WEB/0] ERR INFO: Starting service [Tomcat]
+   2023-07-12T14:49:30.00+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.core.StandardEngine startInternal
+   2023-07-12T14:49:30.00+0530 [APP/PROC/WEB/0] ERR INFO: Starting Servlet engine: [Apache Tomcat/10.1.10]
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/spring_auto_reconfiguration-2.12.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-2.12.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/container_customizer-2.6.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/container_customizer/container_customizer-2.6.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.03+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/client_certificate_mapper-1.11.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/client_certificate_mapper/client_certificate_mapper-1.11.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/spring_auto_reconfiguration-2.12.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-2.12.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/container_customizer-2.6.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/container_customizer/container_customizer-2.6.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.webresources.AbstractFileResourceSet logIgnoredSymlink
+   2023-07-12T14:49:30.10+0530 [APP/PROC/WEB/0] ERR SEVERE: Resource for web application [] at path [/WEB-INF/lib/client_certificate_mapper-1.11.0_RELEASE.jar] was not loaded as the canonical path [/.java-buildpack/client_certificate_mapper/client_certificate_mapper-1.11.0_RELEASE.jar] did not match. Use of symlinks is one possible cause.
+   2023-07-12T14:49:30.16+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:30 AM org.apache.catalina.core.ApplicationContext log
+   2023-07-12T14:49:30.16+0530 [APP/PROC/WEB/0] ERR INFO: Initializing Spring embedded WebApplicationContext
+   2023-07-12T14:49:31.12+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.CloudFoundryContainerTrustManagerFactory getSystemTrustManager
+   2023-07-12T14:49:31.12+0530 [APP/PROC/WEB/0] ERR INFO: Adding System Trust Manager
+   2023-07-12T14:49:31.12+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.CloudFoundryContainerTrustManagerFactory getContainerTrustManager
+   2023-07-12T14:49:31.12+0530 [APP/PROC/WEB/0] ERR INFO: Adding TrustManager for /etc/ssl/certs/ca-certificates.crt
+   2023-07-12T14:49:31.13+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.FileWatcher run
+   2023-07-12T14:49:31.13+0530 [APP/PROC/WEB/0] ERR INFO: Start watching /etc/ssl/certs/ca-certificates.crt
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.FileWatchingX509ExtendedTrustManager <init>
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR INFO: Initialized TrustManager for /etc/ssl/certs/ca-certificates.crt
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.CloudFoundryContainerKeyManagerFactory getSystemKeyManager
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR INFO: Adding System Key Manager
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.CloudFoundryContainerKeyManagerFactory getContainerKeyManager
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR INFO: Adding Key Manager for /etc/cf-instance-credentials/instance.key and /etc/cf-instance-credentials/instance.crt
+   2023-07-12T14:49:31.22+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.FileWatcher run
+   2023-07-12T14:49:31.23+0530 [APP/PROC/WEB/0] ERR INFO: Start watching /etc/cf-instance-credentials/instance.crt
+   2023-07-12T14:49:31.31+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:19:31 AM org.cloudfoundry.security.FileWatchingX509ExtendedKeyManager <init>
+   2023-07-12T14:49:31.31+0530 [APP/PROC/WEB/0] ERR INFO: Initialized KeyManager for /etc/cf-instance-credentials/instance.key and /etc/cf-instance-credentials/instance.crt
+   2023-07-12T14:49:39.12+0530 [CELL/0] OUT Container became healthy
+   2023-07-12T14:50:13.42+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:20:13 AM org.apache.catalina.core.ApplicationContext log
+   2023-07-12T14:50:13.42+0530 [APP/PROC/WEB/0] ERR INFO: Initializing Spring DispatcherServlet 'dispatcherServlet'
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR Jul 12, 2023 9:20:13 AM org.apache.catalina.core.StandardWrapperValve invoke
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR SEVERE: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Filter execution threw an exception] with root cause
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR java.lang.AbstractMethodError: Receiver class com.sap.cloud.security.xsuaa.token.authentication.XsuaaAudienceValidator does not define or inherit an implementation of the resolved method 'abstract org.springframework.security.oauth2.core.OAuth2TokenValidatorResult validate(org.springframework.security.oauth2.core.OAuth2Token)' of interface org.springframework.security.oauth2.core.OAuth2TokenValidator.
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator.validate(DelegatingOAuth2TokenValidator.java:59)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator.validate(DelegatingOAuth2TokenValidator.java:59)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:186)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:139)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at com.sap.cloud.security.xsuaa.token.authentication.XsuaaJwtDecoder.verifyWithKey(XsuaaJwtDecoder.java:178)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at com.sap.cloud.security.xsuaa.token.authentication.XsuaaJwtDecoder.verifyToken(XsuaaJwtDecoder.java:131)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at com.sap.cloud.security.xsuaa.token.authentication.XsuaaJwtDecoder.verifyToken(XsuaaJwtDecoder.java:115)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at com.sap.cloud.security.xsuaa.token.authentication.XsuaaJwtDecoder.decode(XsuaaJwtDecoder.java:97)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationProvider.getJwt(JwtAuthenticationProvider.java:99)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationProvider.authenticate(JwtAuthenticationProvider.java:88)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:137)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.valves.RemoteIpValve.invoke(RemoteIpValve.java:738)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+   2023-07-12T14:50:13.62+0530 [APP/PROC/WEB/0] ERR at java.base/java.lang.Thread.run(Unknown Source)
+   
