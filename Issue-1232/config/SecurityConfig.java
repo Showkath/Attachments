@@ -7,9 +7,25 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/* 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.apache.log4j.MDC;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.web.context.WebApplicationContext;
+import com.sap.cloud.security.token.TokenClaims;
+import com.sap.cloud.security.xsuaa.token.SpringSecurityContext;
+import com.sap.cloud.security.xsuaa.token.Token;
+*/
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,22 +46,37 @@ import com.sap.cloud.security.token.TokenClaims;//New
 import com.sap.cloud.security.spring.config.IdentityServicesPropertySourceFactory;
 import org.springframework.context.annotation.PropertySource;
 
+//old
+//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import lombok.extern.slf4j.Slf4j;
+ 
 @Configuration
 @EnableWebSecurity(debug = true) // TODO "debug" may include sensitive information. Do not use in a production system!
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 @PropertySource(factory = IdentityServicesPropertySourceFactory.class, ignoreResourceNotFound = true, value = { "" })
 
 
-// @EnableWebSecurity
+
+/*
+
+//Old
+
+@Configuration
+@EnableWebSecurity
+@PropertySource(factory = XsuaaServicePropertySourceFactory.class, value = { "" })
+//@propertysource(factory = XsuaaServicePropertySourceFactory.class, ignoreResourceNotFound = true, value = { "" })
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Slf4j
 //@AllArgsConstructor
 // TODO "debug" may include sensitive information. Do not use in a production
-// system!
-//@PropertySource(factory = XsuaaServicePropertySourceFactory.class, value = { "" })
 
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+*/
 
 //NOSONAR
-public class SecurityConfig {
 
+public class SecurityConfig {
+	
 	////https://github.com/SAP/cloud-security-services-integration-library/blob/main/samples/spring-security-basic-auth/src/main/java/sample/spring/xsuaa/config/SecurityConfiguration.java
 	//Latest
 	////https://github.com/SAP/cloud-security-services-integration-library/blob/main/samples/spring-security-hybrid-usage/src/main/java/sample/spring/security/SecurityConfiguration.java
@@ -68,7 +99,7 @@ public class SecurityConfig {
 	//@Autowired
 	//XsuaaServiceConfiguration xsuaaServiceConfiguration;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
+	//private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 	
 	
  
@@ -77,7 +108,7 @@ public class SecurityConfig {
 		public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
 
-			http
+				http
 				
 			.csrf(csrf ->
 			csrf.disable())
@@ -94,10 +125,14 @@ public class SecurityConfig {
 						/* Probably not needed */"/swagger.json").permitAll()
 						//.hasAuthority("administrator")
 				   .anyRequest().authenticated())
-				// TODO TBV I311690 Security good practice Always authenticate all endpoints by default.
 				
 				//Showkath Note : Use xsuaaServiceConfiguration  getJwtAuthoritiesConverter or [ authConverter + MyCustomHybridTokenAuthenticationConverter ]
 				
+				.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(authConverter)))
+                .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                
+				
+				/* 
 				.oauth2ResourceServer(oauth2ResourceServer ->
 				oauth2ResourceServer.jwt(jwt ->
 						jwt.jwtAuthenticationConverter(new MyCustomHybridTokenAuthenticationConverter())));
@@ -106,7 +141,8 @@ public class SecurityConfig {
 						// Adjust the converter to represent your use case
                                             // Use MyCustomHybridTokenAuthenticationConverter when IAS and XSUAA is used
                                             // Use MyCustomIasTokenAuthenticationConverter when only IAS is used
-											
+						
+											*/
 						
 				/*
 				.oauth2ResourceServer(oauth2ResourceServer ->
