@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.1</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
+		<!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sap.beckend</groupId>
-	<artifactId>beckend</artifactId>
-
-	<version>1.1.1-SNAPSHOT</version>
+	<groupId>com.sap.backend</groupId>
+	<artifactId>backendapp</artifactId>
+	
+	<version>1.1.7-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>backend</name>
-	<description>Beckend</description>
+	<name>backendapp</name>
+	<description>Backend</description>
 	<build>
-		<finalName>backend</finalName>
-		 <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.6.0</version>
-		</plugin>
-    </plugins>
+		<finalName>backendapp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.6.0</version>
+			</plugin>
+		</plugins>
 	</build>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+		<java.version>17</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<jackson>2.9.6</jackson>
 		<swagger.version>2.9.2</swagger.version>
 		<json.version>20160212</json.version>
@@ -40,41 +39,142 @@
 		<spring.security.version>5.3.1.RELEASE</spring.security.version>
 		<spring.security.oauth2.version>2.4.1.RELEASE</spring.security.oauth2.version>
 		<spring.security.jwt.version>1.1.0.RELEASE</spring.security.jwt.version>
-		<log4j2.version>2.20.0</log4j2.version><!--2.11.2 -->
-		<slf4j.api.version>1.7.30</slf4j.api.version> 
+		<log4j2.version>2.20.0</log4j2.version>
+		<slf4j.api.version>1.7.30</slf4j.api.version>
 		<cf-logging-version>3.7.0</cf-logging-version>
 		<spring-cloud-connector.version>2.0.9.RELEASE</spring-cloud-connector.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.reflections</groupId>
-			<artifactId>reflections</artifactId>
-			<version>0.9.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			 <version>1.18.24</version>
-			<optional>true</optional>
-		</dependency>
 
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.sap.cloud.sdk</groupId>
+				<artifactId>sdk-bom</artifactId>
+				<version>4.16.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- New from https://github.com/SAP/cloud-security-services-integration-library/blob/main/samples/spring-security-hybrid-usage/pom.xml-->
+			<dependency>
+				<groupId>com.sap.cloud.security</groupId>
+				<artifactId>java-bom</artifactId>
+				<version>${sap.cloud.security.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
 		<!--Swagger -->
 		<!--
+		<dependency><groupId>io.springfox</groupId><artifactId>springfox-swagger2</artifactId><version>${swagger.version}</version><exclusions><exclusion><groupId>org.slf4j</groupId><artifactId>*</artifactId></exclusion><exclusion><groupId>org.apache.logging.log4j</groupId><artifactId>*</artifactId></exclusion></exclusions></dependency><dependency><groupId>io.springfox</groupId><artifactId>springfox-swagger-ui</artifactId><version>${swagger.version}</version></dependency>
+		-->
+
+		<!-- Backend Project Need below Spring Boot dependencies spring-boot-starter-validation  -->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${swagger.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 			<exclusions>
-				
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+
+
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 
+			<exclusions><exclusion><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-logging</artifactId></exclusion><exclusion><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-tomcat</artifactId></exclusion><exclusion><groupId>org.apache.tomcat.embed</groupId><artifactId>tomcat-embed-el</artifactId></exclusion><exclusion><groupId>org.slf4j</groupId><artifactId>*</artifactId></exclusion><exclusion><groupId>org.apache.logging.log4j</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				-->
+		</dependency>
+
+		<!-- Force new version because of known Vulnerability (CVE-2019-11269) -->
+		<!-- showkath commented old start  -->
+		<!-- 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-core</artifactId>
+			<version>6.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>6.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>6.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+	-->
+		<!-- showkath commented old end  -->
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sap.cloud.security</groupId>
+			<artifactId>resourceserver-security-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sap.cloud.security.xsuaa</groupId>
+			<artifactId>spring-security-compatibility</artifactId>
+		</dependency>
+		<!-- OAuth2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+
+		<!-- Commented - May be not needed -->
+		<!--Genral To be Verify Spring Boot dependencies -->
+		<!--
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter</artifactId>
+</dependency>
+-->
+		<!--
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+			<scope>test</scope>
+			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>*</artifactId>
@@ -85,22 +185,30 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>com.sap.cloud.security.xsuaa</groupId>
+			<artifactId>xsuaa-spring-boot-starter</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sap.cloud.security.xsuaa</groupId>
+			<artifactId>xsuaa-spring-boot-starter</artifactId>
+			<version>${sap.cloud.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.unboundid.components</groupId>
+					<artifactId>json</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${swagger.version}</version>
-		</dependency>
-		-->
-		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
-			<version>1.7.29</version> </dependency> -->
-		<!--Spring Boot dependencies -->
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+	-->
+		<!--Spring Test dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -121,10 +229,70 @@
 			</exclusions>
 		</dependency>
 
+		<!-- End of SpringBoot dependencies -->
+
+		<!-- Spring Cloud Connector -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-logging</artifactId>
-			<scope>test</scope>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+			<version>${spring-cloud-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+			<version>${spring-cloud-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.hana.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-hana-service-connector</artifactId>
+			<version>1.0.4.RELEASE</version>
+		</dependency>
+		<!-- Showkath Commented -->
+		<!--
+		<dependency>
+			<groupId>org.cloudfoundry.identity</groupId>
+			<artifactId>cloudfoundry-identity-client-lib</artifactId>
+			<version>4.19.2</version>
+		</dependency>
+		-->
+		<!-- SAP Cloud SDK -->
+		<dependency>
+			<groupId>com.sap.cloud.sdk.cloudplatform</groupId>
+			<artifactId>cloudplatform-connectivity-scp-cf</artifactId>
+			<version>4.16.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+		<!-- SAP Logs -->
+		<!-- new showkath added -->
+		<dependency>
+			<groupId>com.sap.hcp.cf.logging</groupId>
+			<artifactId>cf-java-logging-support-servlet-jakarta</artifactId>
+			<version>3.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.hcp.cf.logging</groupId>
+			<artifactId>cf-java-logging-support-logback</artifactId>
+			<version>${cf-logging-version}</version>
+		</dependency>
+		<!-- Old  -->
+		<!--
+		<dependency>
+			<groupId>com.sap.hcp.cf.logging</groupId>
+			<artifactId>cf-java-logging-support-log4j2</artifactId>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -135,49 +303,51 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
+			<version>${cf-logging-version}</version>
 		</dependency>
-
+		-->
+		<!--  Logs New Added by showkath July2023 -->
+		<!--
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-<!-- 
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-
-				<exclusion>
-					<groupId>org.apache.tomcat.embed</groupId>
-					<artifactId>tomcat-embed-el</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-				--> 
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
 		</dependency>
-
-
-		
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.sap.hcp.cf.logging</groupId>
+			<artifactId>cf-java-logging-support-servlet</artifactId>
+			<version>${cf-logging-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.hcp.cf.logging</groupId>
+			<artifactId>cf-custom-metrics-clients-spring-boot</artifactId>
+			<version>${cf-logging-version}</version>
+		</dependency>
+		-->
 		<!-- Database -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+
 		</dependency>
 		<!-- Derby DB -->
 		<dependency>
@@ -191,209 +361,50 @@
 			<artifactId>ngdbc</artifactId>
 			<version>${ngdbc.version}</version>
 		</dependency>
-		<!-- SAP Cloud SDK -->
 		<dependency>
-			<groupId>com.sap.cloud.sdk.cloudplatform</groupId>
-			<artifactId>cloudplatform-connectivity-scp-cf</artifactId>
-			<version>4.16.0</version>
-		</dependency>
-
-		<!-- Spring Cloud Connector -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-spring-service-connector</artifactId>
-		   <version>${spring-cloud-connector.version}</version>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.9.11</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
-			 <version>${spring-cloud-connector.version}</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sap.hana.cloud</groupId>
-			<artifactId>spring-cloud-cloudfoundry-hana-service-connector</artifactId>
-			<version>1.0.4.RELEASE</version>
-		</dependency>
-
-		
-
-		<dependency>
-			<groupId>org.cloudfoundry.identity</groupId>
-			<artifactId>cloudfoundry-identity-client-lib</artifactId>
-			<version>4.19.2</version>
-		</dependency>
-		<!-- Dependencies for security setup -->
-		<!-- remove due to spring boot 
-		<dependency>
-			<groupId>com.sap.xs2.security</groupId>
-			<artifactId>java-container-security</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>com.unboundid.components</groupId>
-					<artifactId>json</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-log4j12</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		 -->
-		<!-- Replace java-container-security-->
-		<!--
-		<dependency>
-			<groupId>com.sap.xs2.security</groupId>
-			<artifactId>java-container-security-api</artifactId>
-			<version>0.26.4</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.unboundid.components</groupId>
-					<artifactId>json</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.sap.xs2.security</groupId>
-			<artifactId>java-container-security</artifactId>
-			<version>0.26.4</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.unboundid.components</groupId>
-					<artifactId>json</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		-->
-		<dependency>
-    <groupId>com.sap.cloud.security.xsuaa</groupId>
-    <artifactId>xsuaa-spring-boot-starter</artifactId>
-    <version>3.0.1</version>
-</dependency>
-		
-		<!-- Force new version because of known Vulnerability (CVE-2019-11269) -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-core</artifactId>
-			 <version>6.1.1</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<optional>true</optional>
 		</dependency>
-		<dependency> 
-    <groupId>org.springframework.boot</groupId> 
-    <artifactId>spring-boot-starter-validation</artifactId> 
-</dependency>
- <dependency>           
-  <groupId>org.springframework.boot</groupId>           
-   <artifactId>spring-boot-starter-web</artifactId>        
-   </dependency>       
-    <dependency>           
-	 <groupId>org.springframework.boot</groupId>           
-	  <artifactId>spring-boot-starter-security</artifactId>       
-	   </dependency>
-		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>28.2-jre</version>
 		</dependency>
-
-		
-		<!-- CF Logging Support -->
-		<dependency>
-			<groupId>com.sap.hcp.cf.logging</groupId>
-			<artifactId>cf-java-logging-support-log4j2</artifactId>
-			<exclusions>
-			<exclusion>
-				<groupId>org.slf4j</groupId>
-				<artifactId>*</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>*</artifactId>
-			</exclusion>
-			</exclusions>
-			<version>${cf-logging-version}</version>
-
-		</dependency>
-		<!--
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j2.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j2.version}</version>
-		</dependency>
-		 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-text</artifactId>
 			<version>1.10.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sap.hcp.cf.logging</groupId>
-			<artifactId>cf-java-logging-support-servlet</artifactId>
-			<version>${cf-logging-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sap.hcp.cf.logging</groupId>
-			<artifactId>cf-custom-metrics-clients-spring-boot</artifactId>
-			<version>${cf-logging-version}</version>
-		</dependency>
-
-		
-		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>26.0-jre</version>
 		</dependency>
-
-	
-		<dependency>
-			<groupId>com.sap.cloud.security.xsuaa</groupId>
-			<artifactId>xsuaa-spring-boot-starter</artifactId>
-			<version>${sap.cloud.security.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-to-slf4j</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.unboundid.components</groupId>
-					<artifactId>json</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-core</artifactId>
-    <version>6.0.10</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-configuration-processor</artifactId>
-    <optional>true</optional>
-</dependency>
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-web</artifactId>
-    <version>6.0.10</version>
-</dependency>
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.13.0</version>
 		</dependency>
-
-	
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-s3</artifactId>
@@ -404,78 +415,53 @@
 			<artifactId>aws-java-sdk-dynamodb</artifactId>
 			<version>1.11.764</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.github.mifmif</groupId>
 			<artifactId>generex</artifactId>
 			<version>1.0.2</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.uuid</groupId>
 			<artifactId>java-uuid-generator</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
 			<version>4.5.14</version>
 		</dependency>
-
 		<dependency>
 			<groupId>io.findify</groupId>
 			<artifactId>s3mock_2.13</artifactId>
 			<version>0.2.6</version>
 			<scope>test</scope>
-		</dependency>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 
+		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20230618</version>
 		</dependency>
-
-<!-- New Logs Added  July2023 -->
-
-<dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-api</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-   <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-log4j12</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-
-   <dependency>
-   	<groupId>org.springframework.boot</groupId>
-   	<artifactId>spring-boot-configuration-processor</artifactId>
-   	<optional>true</optional>
-   </dependency>
-  
 	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.sap.cloud.sdk</groupId>
-				<artifactId>sdk-bom</artifactId>
-				<version>4.16.0</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	
-
 	<!--*************************** -->
 	<!-- Manifest Properties -->
 	<!--*************************** -->
-	<!-- TODO review -->
+	<!-- TODO  I31690 review -->
 	<profiles>
 		<profile>
 			<id>attach-manifest</id>
@@ -486,7 +472,31 @@
 			</activation>
 			<build>
 				<plugins>
-				
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-manifest</id>
+								<phase>package</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>manifest.yml</file>
+											<type>manifest.yml</type>
+										</artifact>
+										<artifact>
+											<file>it-cf-manifest-customization.yml</file>
+											<type>it-cf-manifest-customization.yml</type>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
