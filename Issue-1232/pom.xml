@@ -70,7 +70,7 @@
 		<dependency><groupId>io.springfox</groupId><artifactId>springfox-swagger2</artifactId><version>${swagger.version}</version><exclusions><exclusion><groupId>org.slf4j</groupId><artifactId>*</artifactId></exclusion><exclusion><groupId>org.apache.logging.log4j</groupId><artifactId>*</artifactId></exclusion></exclusions></dependency><dependency><groupId>io.springfox</groupId><artifactId>springfox-swagger-ui</artifactId><version>${swagger.version}</version></dependency>
 		-->
 
-		<!-- VBE Project Need below Spring Boot dependencies spring-boot-starter-validation  -->
+		<!-- Backend Project Need below Spring Boot dependencies spring-boot-starter-validation  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>

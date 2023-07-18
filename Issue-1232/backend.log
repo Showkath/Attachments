@@ -20,7 +20,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field authConverter in com.sap.ies.vbe.config.SecurityConfig required a bean of type 'org.springframework.core.convert.converter.Converter' that could not be found.
+Field authConverter in com.sap.backend.config.SecurityConfig required a bean of type 'org.springframework.core.convert.converter.Converter' that could not be found.
 
 The injection point has the following annotations:
         - @org.springframework.beans.factory.annotation.Autowired(required=true)
